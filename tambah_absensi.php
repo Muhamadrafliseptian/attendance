@@ -158,7 +158,8 @@ $namapeserta = "";
                                             <tr>
                                                 <th class="text-center">#</th>
                                                 <th>Nama Peserta</th>
-                                                <th>Kehadiran</th>
+                                                <th class="text-center">Hadir</th>
+                                                <th class="text-center">Tidak Hadir</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -179,8 +180,11 @@ $namapeserta = "";
                                                     </td>
                                                     <input type="hidden" name="namapeserta[]" value="<?php echo $namapeserta ?>">
                                                     <td><?php echo $namapeserta ?></td>
-                                                    <td>
-                                                        <input type="text" name="attendance_status[]" class="form-control">
+                                                    <td class="text-center">
+                                                        <input type="checkbox" name="attendance_status[]" value="Hadir">
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <input type="checkbox" name="attendance_status[]" value="Tidak Hadir">
                                                     </td>
                                                 </tr>
 
