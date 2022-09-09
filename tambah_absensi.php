@@ -147,6 +147,14 @@ $namapeserta = "";
                         <div class="card-header py-3">
                             <h6 class="text-primary">
                                 <i class="fa fa-plus"></i> Tambah Data Absensi
+                                <div class="float-right">
+                                    <?php
+                                    $idp = $_GET['idp'];
+                                    $query = $conn->query("SELECT * FROM pertemuan WHERE idpertemuan = $idp");
+                                    $detail = $query->fetch_assoc();
+                                    ?>
+                                    Acara : <b><?php echo $detail['namapertemuan'] ?></b>
+                                </div>
                             </h6>
                         </div>
 
@@ -194,7 +202,7 @@ $namapeserta = "";
                                         <tfoot>
                                             <tr>
                                                 <td colspan="3">
-                                                    <input type="checkbox" name="checkAll" onchange="checkAll(this)">
+                                                    <input type="checkbox" name="checkAll[]" onchange="checkAll(this)">
                                                     Check All
                                                     <button type="submit" name="btn_simpan" class="btn btn-primary btn-sm">
                                                         Tambah
@@ -272,7 +280,7 @@ $namapeserta = "";
     </div>
     <script>
         function checkAll(ele) {
-            var checkboxes = document.getElementsByTagName("input");
+            var checkboxes = document.getElementsByClassName("input");
             if (ele.checked) {
                 for (var i = 0; i < checkboxes.length; i++) {
                     if (checkboxes[i].type == 'checkbox') {

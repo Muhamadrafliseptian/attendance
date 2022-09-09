@@ -149,6 +149,14 @@ $namapeserta = "";
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                 Tambah Peserta
                             </button>
+                            <div class="float-right">
+                                <?php
+                                $idp = $_GET['idp'];
+                                $query = $conn->query("SELECT * FROM pertemuan WHERE idpertemuan = $idp");
+                                $detail = $query->fetch_assoc();
+                                ?>
+                                Acara : <b><?php echo $detail['namapertemuan'] ?></b>
+                            </div>
                             <br>
 
 
