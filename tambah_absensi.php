@@ -182,19 +182,27 @@ $namapeserta = "";
                                                 $namapeserta       = $hasil['namapeserta'];
 
                                             ?>
-                                                <tr>
-                                                    <td class="text-center">
-                                                        <input type="checkbox" name="id_peserta[]" value="<?php echo ++$nourut ?>">
-                                                    </td>
-                                                    <input type="hidden" name="namapeserta[]" value="<?php echo $namapeserta ?>">
-                                                    <td><?php echo $namapeserta ?></td>
-                                                    <td class="text-center">
-                                                        <input type="checkbox" name="attendance_status[]" value="Hadir">
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <input type="checkbox" name="attendance_status[]" value="Tidak Hadir">
-                                                    </td>
-                                                </tr>
+                                                <?php
+                                                $hadir = $conn->query("SELECT * FROM attendance_records WHERE id_peserta = $idpeserta");
+                                                $e = $hadir->fetch_assoc();
+                                                ?>
+                                                <?php if ($e) : ?>
+
+                                                <?php else : ?>
+                                                    <tr>
+                                                        <td class="text-center">
+                                                            <input type="checkbox" name="id_peserta[]" value="<?php echo ++$nourut ?>">
+                                                        </td>
+                                                        <input type="hidden" name="peserta_id[]" value="<?php echo $idpeserta ?>">
+                                                        <td><?php echo $namapeserta ?></td>
+                                                        <td class="text-center">
+                                                            <input type="checkbox" name="attendance_status[]" value="Hadir">
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <input type="checkbox" name="attendance_status[]" value="Tidak Hadir">
+                                                        </td>
+                                                    </tr>
+                                                <?php endif ?>
 
                                             <?php } ?>
 
@@ -219,13 +227,13 @@ $namapeserta = "";
                                     {
                                         //untuk menangkap data dari form 
                                         $id_peserta = $_POST['id_peserta'];
-                                        $namapeserta  = $_POST['namapeserta'];
+                                        $peserta_id  = $_POST['peserta_id'];
                                         $kehadiran = $_POST['attendance_status'];
                                         date_default_timezone_set('Asia/Jakarta');
                                         $tanggal = date("Y-m-d H:i:s");
 
                                         foreach ($id_peserta as $d) {
-                                            $conn->query("INSERT INTO attendance_records (id_absensi, namapeserta, attendance_status, tanggal, id_pertemuan) VALUES ('', '$namapeserta[$d]', '$kehadiran[$d]', '$tanggal', '$_GET[idp]')");
+                                            $conn->query("INSERT INTO attendance_records (id_absensi, id_peserta, attendance_status, tanggal, id_pertemuan) VALUES ('', '$peserta_id[$d]', '$kehadiran[$d]', '$tanggal', '$_GET[idp]')");
                                         }
 
                                         echo "<script>alert('Berhasil');</script>";

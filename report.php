@@ -23,7 +23,8 @@
                 <?php
                 include 'koneksi.php';
                 $no = 0;
-                $query = $conn->query("SELECT * FROM attendance_records  WHERE attendance_records.attendance_status = 'Hadir' ");
+                $idp = $_GET['idp'];
+                $query = $conn->query("SELECT * FROM attendance_records JOIN peserta ON attendance_records.id_peserta = peserta.id WHERE attendance_records.id_pertemuan = $idp AND attendance_records.attendance_status = 'Hadir'");
                 while ($data = $query->fetch_array()) {
                 ?>
                     <tr>
