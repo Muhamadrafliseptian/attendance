@@ -15,7 +15,8 @@
             <thead>
                 <tr>
                     <th class="text-center">No.</th>
-                    <th>Nama</th>
+                    <th class="text-center">Nama</th>
+                    <th class="text-center">Keterangan</th>
                     <th class="text-center">Tanggal</th>
                 </tr>
             </thead>
@@ -28,7 +29,8 @@
                 ?>
                     <tr>
                         <td class="text-center"><?php echo ++$no ?>.</td>
-                        <td><?php echo $data["namapeserta"] ?></td>
+                        <td class="text-center"><?php echo $data["namapeserta"] ?></td>
+                        <td class="text-center"><?php echo $data["attendance_status"]; ?></td>
                         <td class="text-center"><?php echo $data["tanggal"]; ?></td>
                     </tr>
                 <?php
