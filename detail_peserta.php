@@ -120,6 +120,7 @@ include 'koneksi.php';
                                                 <th class="text-center">No.</th>
                                                 <th>Nama Peserta</th>
                                                 <th>Status</th>
+                                                <th>Tanggal</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -133,6 +134,7 @@ include 'koneksi.php';
                                                 <td class="text-center"><?= ++$no ?>.</td>
                                                 <td><?= $data["namapeserta"]; ?></td>
                                                 <td><?= $data["attendance_status"]; ?></td>
+                                                <td><?php echo $data["tanggal"]; ?></td>
                                             </tr>
                                             <?php
                                                 }
