@@ -31,25 +31,15 @@ if (!isset($_SESSION['login'])) {
 </head>
 
 <body id="page-top">
-
-    <!-- Page Wrapper -->
     <div id="wrapper">
-
-        <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3"> Agenda Pertemuan </div>
             </a>
-
-            <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -74,19 +64,11 @@ if (!isset($_SESSION['login'])) {
                     </div>
                 </div>
             </li>
-            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
         </ul>
-        <!-- End of Sidebar -->
 
-        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
             <div id="content">
-
-                <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- profile info & task notification -->
                     <div class="col-md-6 col-sm-4 clearfix">
@@ -341,10 +323,7 @@ if (!isset($_SESSION['login'])) {
                                                             <a class="btn btn-info" href="tambah_peserta.php?idp=<?= $idpertemuan; ?>" role="button">+Peserta</a>
                                                             <a class="btn btn-warning" href="tambah_absensi.php?idp=<?= $idpertemuan ?>" role="button">Absensi</a>
                                                             <a class="btn btn-success" href="report.php?idp=<?= $idpertemuan ?>" role="button">Report</a>
-
-
-
-
+                                                            <a class="btn btn-danger" href="detail_peserta.php?idp=<?= $idpertemuan ?>"><i class="fa fa-search"></i> Detail</a>
                                                         </td>
                                                     </tr>
                                                 <?php
