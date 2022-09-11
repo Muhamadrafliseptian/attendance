@@ -213,7 +213,7 @@ $namapeserta = "";
                                                     <input type="checkbox" name="checkAll[]" onchange="checkAll(this)">
                                                     Check All
                                                     <button type="submit" name="btn_simpan" class="btn btn-primary btn-sm">
-                                                        Tambah
+                                                        Submit
                                                     </button>
                                                 </td>
                                             </tr>
