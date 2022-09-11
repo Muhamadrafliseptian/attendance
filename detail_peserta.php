@@ -119,18 +119,20 @@ include 'koneksi.php';
                                             <tr>
                                                 <th class="text-center">No.</th>
                                                 <th>Nama Peserta</th>
+                                                <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
                                                 $no = 0;
                                                 $idp = $_GET['idp'];
-                                                $que = $conn->query("SELECT * FROM peserta WHERE idpertemuan = $idp");
+                                                $que = $conn->query("SELECT * FROM attendance_records JOIN peserta ON attendance_records.id_peserta = peserta.id WHERE attendance_records.id_pertemuan = $idp AND attendance_records.attendance_status = 'Hadir'");
                                                 while($data = $que->fetch_array()) {
                                             ?>
                                             <tr>
                                                 <td class="text-center"><?= ++$no ?>.</td>
                                                 <td><?= $data["namapeserta"]; ?></td>
+                                                <td><?= $data["attendance_status"]; ?></td>
                                             </tr>
                                             <?php
                                                 }
